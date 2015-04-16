@@ -7,10 +7,8 @@ function get_page_structure($dir = null)
 	}
 	
 	$ignore_files = [
-		ROOT.'/.',
-		ROOT.'/..',
-		ROOT.'/api/',
-		ROOT.'/media/',
+		'/.',
+		'/..',
 	];
 	
 	foreach (new RecursiveIteratorIterator(new RecursiveDirectoryIterator($dir)) as $filename)
@@ -19,7 +17,7 @@ function get_page_structure($dir = null)
 		
 		foreach ($ignore_files as $ignore_filename)
 		{
-			if (strpos($filename, $ignore_filename) === 0)
+			if (strpos($filename, $ignore_filename) !== false)
 			{
 				$ignore = true;
 				continue;
@@ -28,7 +26,7 @@ function get_page_structure($dir = null)
 		
 		if ($ignore === false)
 		{
-			$files[] = substr($filename, strlen(ROOT.'/'));
+			$files[] = substr($filename, strlen(ROOT.'/_pages/'), -3);
 		}
 	}
 	
@@ -36,7 +34,7 @@ function get_page_structure($dir = null)
 	{
 		return [
 			'status' => 'success',
-			'files' => $files,
+			'pages' => $files,
 		];
 	}
 	
@@ -46,8 +44,13 @@ function get_page_structure($dir = null)
 }
 
 
-function get_page($file)
+function get_page($file = null)
 {
+	if (!$file)
+	{
+		$file = 'Index';
+	}
+	
 	$filepath = ROOT.'/_pages/'.$file.'.md';
 	
 	if (file_exists($filepath))
@@ -64,8 +67,12 @@ function get_page($file)
 }
 
 
-function get_parsed_page($file)
+function get_parsed_page($file = null)
 {
+	if (!$file)
+	{
+		$file = 'Index';
+	}
 	$filepath = ROOT.'/_pages/'.$file.'.md';
 	
 	if (file_exists($filepath))

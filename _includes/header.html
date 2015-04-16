@@ -2,27 +2,29 @@
 	<div class="wrap">
 	
 		<h1 class="site-title">
-			<a href="{{ site.baseurl }}"><i class="mdi mdi-cloud"></i></a>
+			<div class="breadcrumb-dropdown" id="nav-level-0"><a href="{{ site.baseurl }}"><i class="mdi mdi-cloud"></i></a></div>
 				
 			<?php
 			$base = '{{ site.baseurl }}';
 			$path = explode('/', trim(substr($_SERVER['REQUEST_URI'], strlen($base)), '/'));
+			$max = count($path);
 			
 			if (count($path))
 			{
 				while (count($path) > 0)
 				{
+					$level = count($path);
 					$url = '/'.implode('/', $path);
 					$label = array_pop($path);
 					
-					$breadcrumbs[] = '<a href="'.$url.'">'.$label.'</a>'.PHP_EOL;
+					$breadcrumbs[] = '<div class="breadcrumb-dropdown" id="nav-level-'.$level.'"><a href="'.$url.'">'.$label.'</a></div>'.PHP_EOL;
 				}
 				
 				$breadcrumbs = array_reverse($breadcrumbs);
-				
-				echo '/ ',implode(' / ', $breadcrumbs);
+				echo '<span class="breadcrumb-seperator">/</span> ',implode(' <span class="breadcrumb-seperator">/</span> ', $breadcrumbs);
 			}
 			?>
+			
 		</h1>
 		
 		<nav class="site-nav view-mode">

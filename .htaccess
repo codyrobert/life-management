@@ -1,4 +1,7 @@
 RewriteEngine on
+
+RewriteRule ^Index$ http://%{HTTP_HOST}/ [R=301,L]
+
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule . index.php [L]

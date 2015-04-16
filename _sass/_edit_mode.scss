@@ -27,6 +27,10 @@ html.edit-mode {
 		}
 	}
 	
+	.breadcrumb-dropdown .siblings {
+		display: none !important;
+	}
+	
 	#editor {
 		appearance: normal;
 		background: none;
