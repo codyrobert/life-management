@@ -1,0 +1,63 @@
+body {
+	color: $fontColor;
+	font-family: $fontFamily;
+	font-size: $fontSize;
+	font-weight: 300;
+	line-height: $lineHeight * 1em;
+}
+
+h1, h2, h3, h4, h5, h6, p, ul, ol, blockquote {
+	&:first-child {
+		margin-top: 0;
+	}
+	
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+p, ul, ol, blockquote {
+	line-height: $lineHeight * 1em;
+	margin: ($lineHeight * $fontSize * 1) 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: 300;
+	line-height: 1.1em;
+	margin: ($lineHeight * $fontSize * 2) 0 ($lineHeight * $fontSize * 1);
+}
+
+h1, .h1 {
+	@include scaleUpFontSizeBy(6);
+}
+
+h2, .h2 {
+	@include scaleUpFontSizeBy(5);
+}
+
+h3, .h3 {
+	@include scaleUpFontSizeBy(4);
+}
+
+h4, .h4 {
+	@include scaleUpFontSizeBy(3);
+}
+
+h5, .h5 {
+	@include scaleUpFontSizeBy(2);
+}
+
+h6, .h6 {
+	@include scaleUpFontSizeBy(1);
+	font-weight: 500;
+	text-transform: uppercase;
+}
+
+a {
+	color: $colorBlue;
+	cursor: pointer;
+	
+	&:active, &:focus, &:hover {
+		color: mix($colorBlue, #fff, 70%);
+	}
+}

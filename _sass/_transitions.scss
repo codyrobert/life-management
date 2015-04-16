@@ -1,0 +1,8 @@
+a,
+.site-header {
+	@include defaultTransition;
+}
+
+body {
+	@include defaultTransition(background-color);
+}

@@ -1,0 +1,202 @@
+/*
+ * Layout
+ ------------------------------------------------------------ */
+/*
+ * Colors
+ ------------------------------------------------------------ */
+/*
+ * Typography
+ ------------------------------------------------------------ */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+body {
+  color: #000;
+  font-family: "ProximaNova Light", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.5em; }
+
+h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child, p:first-child, ul:first-child, ol:first-child, blockquote:first-child {
+  margin-top: 0; }
+h1:last-child, h2:last-child, h3:last-child, h4:last-child, h5:last-child, h6:last-child, p:last-child, ul:last-child, ol:last-child, blockquote:last-child {
+  margin-bottom: 0; }
+
+p, ul, ol, blockquote {
+  line-height: 1.5em;
+  margin: 24px 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 300;
+  line-height: 1.1em;
+  margin: 48px 0 24px; }
+
+h1, .h1 {
+  font-size: 3.37922em; }
+
+h2, .h2 {
+  font-size: 2.75855em; }
+
+h3, .h3 {
+  font-size: 2.25188em; }
+
+h4, .h4 {
+  font-size: 1.83827em; }
+
+h5, .h5 {
+  font-size: 1.50063em; }
+
+h6, .h6 {
+  font-size: 1.225em;
+  font-weight: 500;
+  text-transform: uppercase; }
+
+a {
+  color: #7ba5c7;
+  cursor: pointer; }
+  a:active, a:focus, a:hover {
+    color: #a2c0d7; }
+
+body {
+  background: #fcf7f6;
+  padding-top: 60px; }
+
+.wrap {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 0 15px;
+  overflow: hidden;
+  zoom: 1; }
+
+.page-content {
+  position: relative;
+  z-index: 10; }
+
+.row {
+  margin: 0 -15px;
+  overflow: hidden;
+  zoom: 1; }
+
+[class*=col-] {
+  box-sizing: border-box;
+  float: left;
+  padding: 0 15px; }
+
+.col-1-2 {
+  width: 50%; }
+
+.col-1-3 {
+  width: 33.33333%; }
+
+.col-2-3 {
+  width: 66.66667%; }
+
+.col-1-4 {
+  width: 25%; }
+
+.col-3-4 {
+  width: 75%; }
+
+.site-header {
+  font-size: 1.50063em;
+  background: #f5f0ef;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  height: 60px;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 20; }
+  .site-header a {
+    color: #77716f;
+    text-decoration: none; }
+    .site-header a:active, .site-header a:focus, .site-header a:hover {
+      color: #000; }
+
+.site-title {
+  display: block;
+  float: left;
+  font-size: 1em;
+  height: 59px;
+  line-height: 59px;
+  margin: 0; }
+
+.site-nav {
+  float: right; }
+  .site-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0; }
+  .site-nav li {
+    float: left;
+    line-height: 59px; }
+    .site-nav li + li {
+      margin-left: 15px; }
+
+.site-footer {
+  display: none; }
+
+a,
+.site-header {
+  transition: 0.2s all; }
+
+body {
+  transition: 0.2s background-color; }
+
+html .edit-mode,
+html.edit-mode .view-mode {
+  display: none; }
+
+html.edit-mode .edit-mode {
+  display: block; }
+html.edit-mode body {
+  background: #847e7c; }
+html.edit-mode .site-header {
+  background: #77716f;
+  border-bottom-color: rgba(0, 0, 0, 0.4); }
+  html.edit-mode .site-header a {
+    color: #fcf7f6; }

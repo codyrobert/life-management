@@ -1,0 +1,50 @@
+.site-header {
+	@include scaleUpFontSizeBy(2);
+		
+	background: mix($colorWhite, $colorGrey, 95%);
+	border-bottom: 1px solid rgba(0, 0, 0, .1);
+	box-sizing: border-box;
+	height: $headerHeight;
+	left: 0;
+	position: fixed;
+	right: 0;
+	top: 0;
+	z-index: 20;
+	
+	a {
+		color: $colorGrey;
+		text-decoration: none;
+		
+		&:active, &:focus, &:hover {
+			color: $colorBlack;
+		}
+	}
+}
+
+.site-title {
+	display: block;
+	float: left;
+	font-size: 1em;
+	height: $headerHeight - 1;
+	line-height: $headerHeight - 1;
+	margin: 0;
+}
+
+.site-nav {
+	float: right;
+	
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	li {
+		float: left;
+		line-height: $headerHeight - 1;
+		
+		+ li {
+			margin-left: $gutterWidth / 2;
+		}
+	}
+}

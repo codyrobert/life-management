@@ -1,0 +1,17 @@
+body {
+	background: $colorWhite;
+	padding-top: $headerHeight;
+}
+
+.wrap {
+	margin: 0 auto;
+	max-width: $pageWidth;
+	padding: 0 ($gutterWidth / 2);
+	overflow: hidden;
+	zoom: 1;
+}
+
+.page-content {
+	position: relative;
+	z-index: 10;
+}

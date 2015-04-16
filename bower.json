@@ -1,0 +1,9 @@
+{
+  "name": "codyrobert.cloud",
+  "version": "0.0.1",
+  "homepage": "https://github.com/codyrobert/cloud",
+  "authors": [
+    "Cody Baker <cody@codyrobert.com>"
+  ],
+  "license": "MIT"
+}
