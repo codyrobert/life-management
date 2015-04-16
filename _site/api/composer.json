@@ -1,6 +1,0 @@
-{
-	"require": {
-		"mnapoli/front-yaml": "dev-master",
-		"symfony/yaml": "2.1.*@dev"
-	}
-}
