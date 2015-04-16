@@ -2,6 +2,8 @@
 	
 	app = {
 		
+		scrollOffset: 0,
+		
 		load: function()
 		{
 			$.get("/api", {
@@ -29,6 +31,8 @@
 		
 		openEditMode: function()
 		{
+			app.scrollOffset = document.getElementById("app").scrollTop / (document.getElementById("app").scrollHeight - window.innerHeight);
+			
 			$("html").addClass("edit-mode");
 			
 			$.get("/api", {
@@ -39,6 +43,8 @@
 		
 		closeEditMode: function()
 		{
+			app.scrollOffset = document.getElementById("editor").scrollTop / (document.getElementById("editor").scrollHeight - document.getElementById("editor").offsetHeight);
+			
 			$("html").removeClass("edit-mode");
 			
 			$.get("/api", {
@@ -52,11 +58,12 @@
 		{
 			if (data && data.status == "success")
 			{
-				$("#editor").val(data.content).focus();
+				$("#editor").val(data.content);
+				document.getElementById("editor").scrollTop = app.scrollOffset * document.getElementById("editor").scrollHeight;
 			}
 			else
 			{
-				$("#editor").val("").focus();
+				$("#editor").val("");
 			}
 		},
 		
@@ -65,6 +72,7 @@
 			if (data && data.status == "success")
 			{
 				$("#content").html(data.parsed_content);
+				document.getElementById("app").scrollTop = app.scrollOffset * document.getElementById("app").scrollHeight;
 			}
 		}
 	};
