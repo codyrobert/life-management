@@ -1,7 +1,29 @@
 <header class="site-header">
 	<div class="wrap">
 	
-		<h1 class="site-title"><a href="{{ site.baseurl }}"><i class="mdi mdi-cloud"></i> <?php echo $_SERVER['REQUEST_URI']; ?></a></h1>
+		<h1 class="site-title">
+			<a href="{{ site.baseurl }}"><i class="mdi mdi-cloud"></i></a>
+				
+			<?php
+			$base = '{{ site.baseurl }}';
+			$path = explode('/', trim(substr($_SERVER['REQUEST_URI'], strlen($base)), '/'));
+			
+			if (count($path))
+			{
+				while (count($path) > 0)
+				{
+					$url = '/'.implode('/', $path);
+					$label = array_pop($path);
+					
+					$breadcrumbs[] = '<a href="'.$url.'">'.$label.'</a>'.PHP_EOL;
+				}
+				
+				$breadcrumbs = array_reverse($breadcrumbs);
+				
+				echo '/ ',implode(' / ', $breadcrumbs);
+			}
+			?>
+		</h1>
 		
 		<nav class="site-nav view-mode">
 			<ul>
