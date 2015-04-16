@@ -12,3 +12,4 @@ gems:
 
 exclude:
 - bower.json
+- README.md
