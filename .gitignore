@@ -1,6 +1,6 @@
 .DS_Store
-.sass-cache/
-_pages/
-_site/
-media/vendor/
-api/vendor/
+.sass-cache/**
+_pages/**
+_site/**
+media/vendor/**
+api/vendor/**
