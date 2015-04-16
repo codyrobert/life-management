@@ -4,6 +4,11 @@ html.edit-mode .view-mode {
 }
 
 html.edit-mode {
+	&, body, #editor {
+		box-sizing: border-box;
+		height: 100%;
+	}
+	
 	.edit-mode {
 		display: block;
 	}
@@ -19,5 +24,17 @@ html.edit-mode {
 		a {
 			color: $colorWhite;
 		}
+	}
+	
+	#editor {
+		appearance: normal;
+		background: none;
+		border: 0;
+		color: $colorWhite;
+		display: block;
+		font-size: $fontSize;
+		outline: none;
+		resize: none;
+		width: 100%;
 	}
 }

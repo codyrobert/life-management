@@ -15,6 +15,7 @@ use Symfony\Component\Yaml\Yaml;
 
 class YamlTest extends \PHPUnit_Framework_TestCase
 {
+
     public function testParseAndDump()
     {
         $data = array('lorem' => 'ipsum', 'dolor' => 'sit');
@@ -28,4 +29,13 @@ class YamlTest extends \PHPUnit_Framework_TestCase
         $parsedByContents = Yaml::parse($contents);
         $this->assertEquals($parsedByFilename, $parsedByContents);
     }
+
+    public function testEmbededPhp()
+    {
+        $filename = __DIR__.'/Fixtures/embededPhp.yml';
+        Yaml::enablePhpParsing();
+        $parsed = Yaml::parse($filename);
+        $this->assertEquals(array('value' => 6), $parsed);
+    }
+
 }

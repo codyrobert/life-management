@@ -3,15 +3,12 @@
 	
 	{% include head.html %}
 	
-<body>
+<body onload="app.load();">
 	
 	{% include header.html %}
-	
-	<div class="page-content">
-			
-		{{ content }}
-			
-	</div>
+
+	<div id="content" class="page-content wrap view-mode"></div>
+	<textarea id="editor" class="page-content wrap edit-mode"></textarea>
 	
 	{% include footer.html %}
 	

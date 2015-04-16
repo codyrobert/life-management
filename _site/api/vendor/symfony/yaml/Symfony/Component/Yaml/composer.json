@@ -18,17 +18,9 @@
     "require": {
         "php": ">=5.3.3"
     },
-    "require-dev": {
-        "symfony/phpunit-bridge": "~2.7"
-    },
     "autoload": {
-        "psr-0": { "Symfony\\Component\\Yaml\\": "" }
+        "psr-0": { "Symfony\\Component\\Yaml": "" }
     },
     "target-dir": "Symfony/Component/Yaml",
-    "minimum-stability": "dev",
-    "extra": {
-        "branch-alias": {
-            "dev-master": "2.6-dev"
-        }
-    }
+    "minimum-stability": "dev"
 }

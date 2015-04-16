@@ -20,6 +20,10 @@ switch ($_GET['request'])
 	case "get_page":
 		$response = get_page($_GET['page']);
 		break;
+		
+	case "get_parsed_page":
+		$response = get_parsed_page($_GET['page']);
+		break;
 	
 	case "save_page":
 		$response = save_page($_GET['page'], $_GET['content'], @json_decode($_GET['attributes']));

@@ -3,7 +3,7 @@ function get_page_structure($dir = null)
 {
 	if ($dir === null)
 	{
-		$dir = ROOT;
+		$dir = ROOT.'/_pages';
 	}
 	
 	$ignore_files = [
@@ -48,7 +48,7 @@ function get_page_structure($dir = null)
 
 function get_page($file)
 {
-	$filepath = ROOT.'/'.$file;
+	$filepath = ROOT.'/_pages/'.$file.'.md';
 	
 	if (file_exists($filepath))
 	{
@@ -60,13 +60,37 @@ function get_page($file)
 		
 		return [
 			'status' => 'success',
-			'attributes' => $yaml,
+			//'attributes' => $yaml,
 			'content' => $content,
 		];
 	}
 	
 	return [
-		'status' => 'failed',	
+		'status' => 'failed',
+	];
+}
+
+
+function get_parsed_page($file)
+{
+	$filepath = ROOT.'/_pages/'.$file.'.md';
+	
+	if (file_exists($filepath))
+	{
+		$parser = new Mni\FrontYAML\Parser();
+		$document = $parser->parse(file_get_contents($filepath));
+	
+		$yaml = $document->getYAML();
+		$content = $document->getContent();
+		
+		return [
+			'status' => 'success',
+			'parsed_content' => $content,
+		];
+	}
+	
+	return [
+		'status' => 'failed',
 	];
 }
 
@@ -79,9 +103,13 @@ function save_page($file, $content, $attributes)
 	
 	$yaml = Symfony\Component\Yaml\Yaml::Dump($attributes, 2);
 	
-	file_put_contents(ROOT.'/'.$file, '---'.PHP_EOL.$yaml.'---'.PHP_EOL.PHP_EOL.$content);
+	file_put_contents(ROOT.'/_pages/'.$file.'.md', /*'---'.PHP_EOL.$yaml.'---'.PHP_EOL.PHP_EOL.*/$content);
+	
+	$parser = new Mni\FrontYAML\Parser();
+	$document = $parser->parse($content);
 	
 	return [
 		'status' => 'success',
+		'parsed_content' => $document->getContent(),
 	];
 }

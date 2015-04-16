@@ -100,6 +100,9 @@ a {
   a:active, a:focus, a:hover {
     color: #a2c0d7; }
 
+strong {
+  font-weight: 500; }
+
 body {
   background: #fcf7f6;
   padding-top: 60px; }
@@ -112,6 +115,7 @@ body {
   zoom: 1; }
 
 .page-content {
+  padding: 40px 0;
   position: relative;
   z-index: 10; }
 
@@ -191,6 +195,9 @@ html .edit-mode,
 html.edit-mode .view-mode {
   display: none; }
 
+html.edit-mode, html.edit-mode body, html.edit-mode #editor {
+  box-sizing: border-box;
+  height: 100%; }
 html.edit-mode .edit-mode {
   display: block; }
 html.edit-mode body {
@@ -200,3 +207,13 @@ html.edit-mode .site-header {
   border-bottom-color: rgba(0, 0, 0, 0.4); }
   html.edit-mode .site-header a {
     color: #fcf7f6; }
+html.edit-mode #editor {
+  appearance: normal;
+  background: none;
+  border: 0;
+  color: #fcf7f6;
+  display: block;
+  font-size: 16px;
+  outline: none;
+  resize: none;
+  width: 100%; }
