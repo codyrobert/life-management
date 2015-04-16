@@ -7,13 +7,13 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
-	<title>Cloud</title>
+	<title>Cloud <?php echo $_SERVER['REQUEST_URI']; ?></title>
 	<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
 ">
 	
 	<link rel="canonical" href="http://cloud/index.php">
 	
-	<link rel="stylesheet" href="/media/vendors/mdi/css/materialdesignicons.min.css" />
+	<link rel="stylesheet" href="/media/vendor/mdi/css/materialdesignicons.min.css" />
 	<link rel="stylesheet" href="/media/css/master.css">
 	
 </head>
@@ -52,8 +52,8 @@
 </footer>
 
 	
-	<script src="/media/vendors/jquery/dist/jquery.min.js"></script>
-	<script src="media/js/master.js"></script>
+	<script src="/media/vendor/jquery/dist/jquery.min.js"></script>
+	<script src="/media/js/master.js"></script>
 	
 </body>
 	

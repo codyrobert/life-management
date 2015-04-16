@@ -1,0 +1,4 @@
+.sass-cache
+.DS_Store
+media/vendor
+api/vendor
