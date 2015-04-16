@@ -6,5 +6,4 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname(dirname($vendorDir));
 
 return array(
-    'League\\CommonMark\\' => array($vendorDir . '/league/commonmark/src'),
 );

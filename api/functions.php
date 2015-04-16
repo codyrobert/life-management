@@ -70,11 +70,11 @@ function get_parsed_page($file)
 	
 	if (file_exists($filepath))
 	{
-		$converter = new League\CommonMark\CommonMarkConverter();
+		$converter = new Parsedown();
 		
 		return [
 			'status' => 'success',
-			'parsed_content' => $converter->convertToHtml(file_get_contents($filepath)),
+			'parsed_content' => $converter->text(file_get_contents($filepath)),
 		];
 	}
 	
@@ -88,11 +88,11 @@ function save_page($file, $content)
 {
 	improved_file_put_contents(ROOT.'/_pages/'.$file.'.md', $content);
 	
-	$converter = new League\CommonMark\CommonMarkConverter();
+	$converter = new Parsedown();
 	
 	return [
 		'status' => 'success',
-		'parsed_content' => $converter->convertToHtml($content),
+		'parsed_content' => $converter->text($content),
 	];
 }
 

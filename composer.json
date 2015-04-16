@@ -3,6 +3,6 @@
 		"vendor-dir": "api/vendor"
 	},
 	"require": {
-		"league/commonmark": "0.8.*@dev"
+		"erusev/parsedown": "dev-master"
 	}
 }
