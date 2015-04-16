@@ -6,5 +6,5 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Mni\\FrontYAML\\' => array($vendorDir . '/mnapoli/front-yaml/src'),
+    'League\\CommonMark\\' => array($vendorDir . '/league/commonmark/src'),
 );

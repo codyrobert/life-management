@@ -52,16 +52,9 @@ function get_page($file)
 	
 	if (file_exists($filepath))
 	{
-		$parser = new Mni\FrontYAML\Parser();
-		$document = $parser->parse(file_get_contents($filepath), false);
-	
-		$yaml = $document->getYAML();
-		$content = $document->getContent();
-		
 		return [
 			'status' => 'success',
-			//'attributes' => $yaml,
-			'content' => $content,
+			'content' => file_get_contents($filepath),
 		];
 	}
 	
@@ -77,15 +70,11 @@ function get_parsed_page($file)
 	
 	if (file_exists($filepath))
 	{
-		$parser = new Mni\FrontYAML\Parser();
-		$document = $parser->parse(file_get_contents($filepath));
-	
-		$yaml = $document->getYAML();
-		$content = $document->getContent();
+		$converter = new League\CommonMark\CommonMarkConverter();
 		
 		return [
 			'status' => 'success',
-			'parsed_content' => $content,
+			'parsed_content' => $converter->convertToHtml(file_get_contents($filepath)),
 		];
 	}
 	
@@ -95,22 +84,15 @@ function get_parsed_page($file)
 }
 
 
-function save_page($file, $content, $attributes)
+function save_page($file, $content)
 {
-	$attributes = array_merge([
-		'layout' => 'master',
-	], (array)$attributes);
+	improved_file_put_contents(ROOT.'/_pages/'.$file.'.md', $content);
 	
-	$yaml = Symfony\Component\Yaml\Yaml::Dump($attributes, 2);
-	
-	improved_file_put_contents(ROOT.'/_pages/'.$file.'.md', /*'---'.PHP_EOL.$yaml.'---'.PHP_EOL.PHP_EOL.*/$content);
-	
-	$parser = new Mni\FrontYAML\Parser();
-	$document = $parser->parse($content);
+	$converter = new League\CommonMark\CommonMarkConverter();
 	
 	return [
 		'status' => 'success',
-		'parsed_content' => $document->getContent(),
+		'parsed_content' => $converter->convertToHtml($content),
 	];
 }
 

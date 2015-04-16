@@ -26,7 +26,7 @@ switch ($_GET['request'])
 		break;
 	
 	case "save_page":
-		$response = save_page($_GET['page'], $_GET['content'], @json_decode($_GET['attributes']));
+		$response = save_page($_GET['page'], $_GET['content']);
 		break;
 }
 

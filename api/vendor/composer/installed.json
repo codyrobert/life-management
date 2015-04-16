@@ -1,125 +1,64 @@
 [
     {
-        "name": "erusev/parsedown",
-        "version": "1.5.2",
-        "version_normalized": "1.5.2.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/erusev/parsedown.git",
-            "reference": "468d1e3da8bde049debee7f484a4f9c4b26b41ba"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/erusev/parsedown/zipball/468d1e3da8bde049debee7f484a4f9c4b26b41ba",
-            "reference": "468d1e3da8bde049debee7f484a4f9c4b26b41ba",
-            "shasum": ""
-        },
-        "time": "2015-03-18 18:44:57",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "Parsedown": ""
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Emanuil Rusev",
-                "email": "hello@erusev.com",
-                "homepage": "http://erusev.com"
-            }
-        ],
-        "description": "Parser for Markdown.",
-        "homepage": "http://parsedown.org",
-        "keywords": [
-            "markdown",
-            "parser"
-        ]
-    },
-    {
-        "name": "symfony/yaml",
-        "version": "2.1.x-dev",
-        "version_normalized": "2.1.9999999.9999999-dev",
-        "target-dir": "Symfony/Component/Yaml",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/symfony/Yaml.git",
-            "reference": "347a7a02204433c6926ecc3f13e805bdc30e8f9f"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/symfony/Yaml/zipball/347a7a02204433c6926ecc3f13e805bdc30e8f9f",
-            "reference": "347a7a02204433c6926ecc3f13e805bdc30e8f9f",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.3"
-        },
-        "time": "2013-05-10 00:09:46",
-        "type": "library",
-        "installation-source": "source",
-        "autoload": {
-            "psr-0": {
-                "Symfony\\Component\\Yaml": ""
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Fabien Potencier",
-                "email": "fabien@symfony.com",
-                "homepage": "http://fabien.potencier.org",
-                "role": "Lead Developer"
-            },
-            {
-                "name": "Symfony Community",
-                "homepage": "http://symfony.com/contributors"
-            }
-        ],
-        "description": "Symfony Yaml Component",
-        "homepage": "http://symfony.com"
-    },
-    {
-        "name": "mnapoli/front-yaml",
+        "name": "league/commonmark",
         "version": "dev-master",
         "version_normalized": "9999999-dev",
         "source": {
             "type": "git",
-            "url": "https://github.com/mnapoli/FrontYAML.git",
-            "reference": "642ac04ed7f3ef7d0d61ffb66bb48aa25d1050fa"
+            "url": "https://github.com/thephpleague/commonmark.git",
+            "reference": "46615480525047383aa99557ba37b152cdc1fb3f"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/mnapoli/FrontYAML/zipball/642ac04ed7f3ef7d0d61ffb66bb48aa25d1050fa",
-            "reference": "642ac04ed7f3ef7d0d61ffb66bb48aa25d1050fa",
+            "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/46615480525047383aa99557ba37b152cdc1fb3f",
+            "reference": "46615480525047383aa99557ba37b152cdc1fb3f",
             "shasum": ""
         },
         "require": {
-            "erusev/parsedown": "~1.0",
-            "symfony/yaml": "~2.1"
+            "ext-mbstring": "*",
+            "php": ">=5.4.8"
+        },
+        "replace": {
+            "colinodell/commonmark-php": "*"
         },
         "require-dev": {
-            "league/commonmark": "~0.7",
-            "phpunit/phpunit": "~4.5"
+            "erusev/parsedown": "~1.0",
+            "jgm/commonmark": "0.18",
+            "michelf/php-markdown": "~1.4",
+            "phpunit/phpunit": "~4.3",
+            "phpunit/phpunit-mock-objects": "2.3.0"
         },
-        "time": "2015-03-09 09:51:07",
+        "time": "2015-04-14 16:07:02",
         "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "0.8-dev"
+            }
+        },
         "installation-source": "source",
         "autoload": {
             "psr-4": {
-                "Mni\\FrontYAML\\": "src/"
+                "League\\CommonMark\\": "src/"
             }
         },
         "notification-url": "https://packagist.org/downloads/",
         "license": [
-            "MIT"
+            "BSD-3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Colin O'Dell",
+                "email": "colinodell@gmail.com",
+                "homepage": "http://www.colinodell.com",
+                "role": "Lead Developer"
+            }
+        ],
+        "description": "Markdown parser for PHP based on the CommonMark spec",
+        "homepage": "https://github.com/thephpleague/commonmark",
+        "keywords": [
+            "commonmark",
+            "markdown",
+            "parser"
         ]
     }
 ]

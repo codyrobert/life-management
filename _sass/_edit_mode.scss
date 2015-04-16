@@ -35,6 +35,7 @@ html.edit-mode {
 		display: block;
 		font-size: $fontSize;
 		outline: none;
+		overflow: auto;
 		resize: none;
 		width: 100%;
 	}
