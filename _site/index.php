@@ -24,7 +24,7 @@
 	<header class="site-header">
 	<div class="wrap">
 	
-		<h1 class="site-title"><a href=""><i class="mdi mdi-menu"></i> Cloud</a></h1>
+		<h1 class="site-title"><a href=""><i class="mdi mdi-cloud"></i> <?php echo $_SERVER['REQUEST_URI']; ?></a></h1>
 		
 		<nav class="site-nav view-mode">
 			<ul>

@@ -103,7 +103,7 @@ function save_page($file, $content, $attributes)
 	
 	$yaml = Symfony\Component\Yaml\Yaml::Dump($attributes, 2);
 	
-	file_put_contents(ROOT.'/_pages/'.$file.'.md', /*'---'.PHP_EOL.$yaml.'---'.PHP_EOL.PHP_EOL.*/$content);
+	improved_file_put_contents(ROOT.'/_pages/'.$file.'.md', /*'---'.PHP_EOL.$yaml.'---'.PHP_EOL.PHP_EOL.*/$content);
 	
 	$parser = new Mni\FrontYAML\Parser();
 	$document = $parser->parse($content);
@@ -113,3 +113,13 @@ function save_page($file, $content, $attributes)
 		'parsed_content' => $document->getContent(),
 	];
 }
+
+
+function improved_file_put_contents($dir, $contents){
+        $parts = explode('/', $dir);
+        $file = array_pop($parts);
+        $dir = '';
+        foreach($parts as $part)
+            if(!is_dir($dir .= "/$part")) mkdir($dir);
+        file_put_contents("$dir/$file", $contents);
+    }
