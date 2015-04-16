@@ -4,19 +4,6 @@
 		
 		scrollOffset: 0,
 		
-		load: function()
-		{
-			$.get("/api", {
-				request: "get_parsed_page",
-				page: app.getCurrentPage()
-			}, function(data) {
-				if (data && data.status == "success")
-				{
-					$("#content").html(data.parsed_content);
-				}
-			});
-		},
-		
 		getCurrentPage: function()
 		{
 			var path = window.location.pathname.substring(1);
@@ -29,9 +16,17 @@
 			return path;
 		},
 		
+		load: function()
+		{
+			$.get("/api", {
+				request: "get_parsed_page",
+				page: app.getCurrentPage()
+			}, app.loadHTML);
+		},
+		
 		openEditMode: function()
 		{
-			app.scrollOffset = document.getElementById("app").scrollTop / (document.getElementById("app").scrollHeight - window.innerHeight);
+			app.scrollOffset = Math.round(document.getElementById("app").scrollTop / (document.getElementById("app").scrollHeight - window.innerHeight) * 10000) / 10000;
 			
 			$("html").addClass("edit-mode");
 			
@@ -43,7 +38,7 @@
 		
 		closeEditMode: function()
 		{
-			app.scrollOffset = document.getElementById("editor").scrollTop / (document.getElementById("editor").scrollHeight - document.getElementById("editor").offsetHeight);
+			app.scrollOffset = Math.round(document.getElementById("editor").scrollTop / (document.getElementById("editor").scrollHeight - window.innerHeight) * 10000) / 10000;
 			
 			$("html").removeClass("edit-mode");
 			
@@ -59,7 +54,7 @@
 			if (data && data.status == "success")
 			{
 				$("#editor").val(data.content);
-				document.getElementById("editor").scrollTop = app.scrollOffset * document.getElementById("editor").scrollHeight;
+				document.getElementById("editor").scrollTop = Math.round(app.scrollOffset * (document.getElementById("editor").scrollHeight - window.innerHeight) * 10000) / 10000;
 			}
 			else
 			{
@@ -71,8 +66,8 @@
 		{
 			if (data && data.status == "success")
 			{
-				$("#content").html(data.parsed_content);
-				document.getElementById("app").scrollTop = app.scrollOffset * document.getElementById("app").scrollHeight;
+				$("#content").html(data.content);
+				document.getElementById("app").scrollTop = Math.round(app.scrollOffset * (document.getElementById("app").scrollHeight - window.innerHeight) * 10000) / 10000;
 			}
 		}
 	};

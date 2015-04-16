@@ -74,7 +74,7 @@ function get_parsed_page($file)
 		
 		return [
 			'status' => 'success',
-			'parsed_content' => $converter->text(file_get_contents($filepath)),
+			'content' => $converter->text(file_get_contents($filepath)),
 		];
 	}
 	
@@ -92,7 +92,7 @@ function save_page($file, $content)
 	
 	return [
 		'status' => 'success',
-		'parsed_content' => $converter->text($content),
+		'content' => $converter->text($content),
 	];
 }
 

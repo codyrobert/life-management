@@ -1,11 +1,11 @@
 body {
 	background: $colorWhite;
-	padding-top: $headerHeight;
 }
 
 .wrap {
+	box-sizing: border-box;
 	margin: 0 auto;
-	max-width: $pageWidth;
+	max-width: $pageWidth + $gutterWidth;
 	padding-left: ($gutterWidth / 2);
 	padding-right: ($gutterWidth / 2);
 	overflow: hidden;
@@ -14,7 +14,7 @@ body {
 
 .page-content {
 	padding-bottom: 40px;
-	padding-top: 40px;
+	padding-top: 40px + $headerHeight;
 	position: relative;
 	z-index: 10;
 }
