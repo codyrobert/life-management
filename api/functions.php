@@ -73,11 +73,12 @@ function get_parsed_page($file = null)
 	{
 		$file = 'Index';
 	}
+	
 	$filepath = ROOT.'/_pages/'.$file.'.md';
 	
 	if (file_exists($filepath))
 	{
-		$converter = new Parsedown();
+		$converter = new ParsedownExtra();
 		
 		return [
 			'status' => 'success',
@@ -93,9 +94,14 @@ function get_parsed_page($file = null)
 
 function save_page($file, $content)
 {
+	if (!$file)
+	{
+		$file = 'Index';
+	}
+	
 	improved_file_put_contents(ROOT.'/_pages/'.$file.'.md', $content);
 	
-	$converter = new Parsedown();
+	$converter = new ParsedownExtra();
 	
 	return [
 		'status' => 'success',

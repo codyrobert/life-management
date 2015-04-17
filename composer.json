@@ -3,6 +3,6 @@
 		"vendor-dir": "api/vendor"
 	},
 	"require": {
-		"erusev/parsedown": "dev-master"
+		"erusev/parsedown-extra": "dev-master"
 	}
 }
