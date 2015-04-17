@@ -13,3 +13,7 @@ gems:
 exclude:
 - bower.json
 - README.md
+
+keep_files:
+- pages*
+- uploads*

@@ -1,17 +1,12 @@
 <?php
-function get_page_structure($dir = null)
+function get_page_structure()
 {
-	if ($dir === null)
-	{
-		$dir = ROOT.'/_pages';
-	}
-	
 	$ignore_files = [
 		'/.',
 		'/..',
 	];
 	
-	foreach (new RecursiveIteratorIterator(new RecursiveDirectoryIterator($dir)) as $filename)
+	foreach (new RecursiveIteratorIterator(new RecursiveDirectoryIterator(ROOT.'/pages')) as $filename)
 	{
 		$ignore = false;
 		
@@ -26,7 +21,7 @@ function get_page_structure($dir = null)
 		
 		if ($ignore === false)
 		{
-			$files[] = substr($filename, strlen(ROOT.'/_pages/'), -3);
+			$files[] = substr($filename, strlen(ROOT.'/pages/'), -3);
 		}
 	}
 	
@@ -51,7 +46,7 @@ function get_page($file = null)
 		$file = 'Index';
 	}
 	
-	$filepath = ROOT.'/_pages/'.$file.'.md';
+	$filepath = ROOT.'/pages/'.$file.'.md';
 	
 	if (file_exists($filepath))
 	{
@@ -74,7 +69,7 @@ function get_parsed_page($file = null)
 		$file = 'Index';
 	}
 	
-	$filepath = ROOT.'/_pages/'.$file.'.md';
+	$filepath = ROOT.'/pages/'.$file.'.md';
 	
 	if (file_exists($filepath))
 	{
@@ -99,7 +94,7 @@ function save_page($file, $content)
 		$file = 'Index';
 	}
 	
-	improved_file_put_contents(ROOT.'/_pages/'.$file.'.md', $content);
+	improved_file_put_contents(ROOT.'/pages/'.$file.'.md', $content);
 	
 	$converter = new ParsedownExtra();
 	
