@@ -95,6 +95,21 @@
 			
 			&:active, &:focus, &:hover {
 				background: $colorBlack;
+				
+				&:first-child:before {
+					border: solid transparent;
+					border-bottom-color: $colorBlack;
+					border-width: 0 5px 5px;
+					content: "";
+					display: block;
+					height: 0;
+					left: 50%;
+					margin-left: -5px;
+					position: absolute;
+					top: -5px;
+					width: 0;
+					z-index: 10;
+				}
 			}
 		}
 	}
