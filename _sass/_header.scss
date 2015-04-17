@@ -57,6 +57,7 @@
 		display: none;
 		left: 50%;
 		line-height: $lineHeight * 1em;
+		overflow: hidden;
 		position: absolute;
 		top: 100%;
 		white-space: nowrap;
@@ -83,6 +84,10 @@
 			
 			+ a {
 				border-top: 1px solid mix($colorGrey, $colorWhite, 75%);
+			}
+			
+			&:active, &:focus, &:hover {
+				background: $colorBlack;
 			}
 		}
 	}
