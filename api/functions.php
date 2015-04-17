@@ -118,6 +118,16 @@ function improved_file_put_contents($dir, $contents)
 
 function upload_media($file)
 {
+	if (!file_exists(ROOT.'/content'))
+	{
+		mkdir(ROOT.'/content');
+	}
+	
+	if (!file_exists(ROOT.'/content/uploads'))
+	{
+		mkdir(ROOT.'/content/uploads');
+	}
+	
 	$tempFile = $file['tmp_name'];
     $targetFile =  substr(md5(time()), -8).'_'.$file['name'];
  

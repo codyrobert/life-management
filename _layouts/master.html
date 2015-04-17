@@ -17,30 +17,34 @@
 		<div id="media" class="row">
 			
 			<?php
-			$ignore_files = [
-				'/.',
-				'/..',
-			];
-			
-			foreach (new RecursiveIteratorIterator(new RecursiveDirectoryIterator(__DIR__.'/content/uploads')) as $filename)
+			if (file_exists(__DIR__.'/content/uploads'))
 			{
-				$ignore = false;
+				$ignore_files = [
+					'/.',
+					'/..',
+				];
 				
-				foreach ($ignore_files as $ignore_filename)
+				foreach (new RecursiveIteratorIterator(new RecursiveDirectoryIterator(__DIR__.'/content/uploads')) as $filename)
 				{
-					if (strpos($filename, $ignore_filename) !== false)
+					$ignore = false;
+					
+					foreach ($ignore_files as $ignore_filename)
 					{
-						$ignore = true;
-						continue;
+						if (strpos($filename, $ignore_filename) !== false)
+						{
+							$ignore = true;
+							continue;
+						}
 					}
-				}
-				
-				if ($ignore === false)
-				{
-					$files[] = substr($filename, strlen(__DIR__));
+					
+					if ($ignore === false)
+					{
+						$files[] = substr($filename, strlen(__DIR__));
+					}
 				}
 			}
 			
+			if (count(@$files)):
 			foreach ($files as $src):
 			?>
 			<div class="col-1-4">
@@ -48,7 +52,7 @@
 					<img src="<?php echo $src; ?>" />
 				</a>
 			</div>
-			<?php endforeach; ?>
+			<?php endforeach; endif; ?>
 			
 		</div>
 		
