@@ -57,7 +57,6 @@
 		display: none;
 		left: 50%;
 		line-height: $lineHeight * 1em;
-		overflow: hidden;
 		position: absolute;
 		top: 100%;
 		white-space: nowrap;
@@ -81,6 +80,14 @@
 			color: #fff;
 			display: block;
 			padding: 5px 15px 5px 15px;
+			
+			&:first-child {
+				border-radius: 3px 3px 0 0;
+			}
+			
+			&:last-child {
+				border-radius: 0 0 3px 3px;
+			}
 			
 			+ a {
 				border-top: 1px solid mix($colorGrey, $colorWhite, 75%);
