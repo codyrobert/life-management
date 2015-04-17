@@ -4,11 +4,11 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "25d1fb7ccf874c1485265fd9780fc85d",
+    "hash": "efda96559bebfcee086e8ffc30fcb721",
     "packages": [
         {
             "name": "erusev/parsedown",
-            "version": "dev-master",
+            "version": "1.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/erusev/parsedown.git",
@@ -44,13 +44,57 @@
                 "parser"
             ],
             "time": "2015-03-18 18:44:57"
+        },
+        {
+            "name": "erusev/parsedown-extra",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/erusev/parsedown-extra.git",
+                "reference": "5829ab17e68bd3f3c3da0633647b7874e5784385"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/erusev/parsedown-extra/zipball/5829ab17e68bd3f3c3da0633647b7874e5784385",
+                "reference": "5829ab17e68bd3f3c3da0633647b7874e5784385",
+                "shasum": ""
+            },
+            "require": {
+                "erusev/parsedown": "~1.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "ParsedownExtra": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Emanuil Rusev",
+                    "email": "hello@erusev.com",
+                    "homepage": "http://erusev.com"
+                }
+            ],
+            "description": "An extension of Parsedown that adds support for Markdown Extra.",
+            "homepage": "https://github.com/erusev/parsedown-extra",
+            "keywords": [
+                "markdown",
+                "markdown extra",
+                "parsedown",
+                "parser"
+            ],
+            "time": "2015-03-18 20:18:52"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "erusev/parsedown": 20
+        "erusev/parsedown-extra": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
