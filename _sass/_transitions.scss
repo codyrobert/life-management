@@ -1,8 +1,17 @@
 a,
-.site-header {
+.site-header,
+#media-browser {
 	@include defaultTransition;
 }
 
 body {
 	@include defaultTransition(background-color);
+}
+
+#editor {
+	@include defaultTransition(color);
+}
+
+#media a {
+	@include defaultTransition(opacity);
 }

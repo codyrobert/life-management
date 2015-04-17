@@ -28,6 +28,10 @@ switch ($_GET['request'])
 	case "save_page":
 		$response = save_page($_GET['page'], $_GET['content']);
 		break;
+		
+	case "upload":
+		$response = upload_media($_FILES['file']);
+		break;
 }
 
 header('Content-Type: application/json');

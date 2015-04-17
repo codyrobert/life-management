@@ -12,8 +12,9 @@ gems:
 
 exclude:
 - bower.json
+- composer.json
+- composer.lock
 - README.md
 
 keep_files:
-- pages*
-- uploads*
+- content*

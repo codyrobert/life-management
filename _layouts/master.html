@@ -10,9 +10,64 @@
 	<div id="content" class="page-content wrap markdown-body view-mode"></div>
 	<textarea id="editor" class="page-content wrap edit-mode"></textarea>
 	
+	<div id="media-browser" class="page-content wrap">
+		
+		<div id="upload">Drag to upload...</div>
+		
+		<div id="media" class="row">
+			
+			<?php
+			$ignore_files = [
+				'/.',
+				'/..',
+			];
+			
+			foreach (new RecursiveIteratorIterator(new RecursiveDirectoryIterator(__DIR__.'/content/uploads')) as $filename)
+			{
+				$ignore = false;
+				
+				foreach ($ignore_files as $ignore_filename)
+				{
+					if (strpos($filename, $ignore_filename) !== false)
+					{
+						$ignore = true;
+						continue;
+					}
+				}
+				
+				if ($ignore === false)
+				{
+					$files[] = substr($filename, strlen(__DIR__));
+				}
+			}
+			
+			foreach ($files as $src):
+			?>
+			<div class="col-1-4">
+				<a data-file="<?php echo $src; ?>">
+					<img src="<?php echo $src; ?>" />
+				</a>
+			</div>
+			<?php endforeach; ?>
+			
+		</div>
+		
+		<div id="media-template" style="display:none;">
+			<div class="col-1-4">
+				<a>
+					<i class="uploading mdi mdi-dots-horizontal"></i>
+					<i class="failed mdi mdi-emoticon-sad"></i>
+					<img class="complete" src="" />
+				</a>
+			</div>
+		</div>
+		
+	</div>
+	
 	{% include footer.html %}
 	
 	<script src="{{ "media/vendor/jquery/dist/jquery.min.js" | prepend: site.baseurl }}"></script>
+	<script src="{{ "media/vendor/dropzone/dist/min/dropzone.min.js" | prepend: site.baseurl }}"></script>
 	<script src="{{ "media/js/master.js" | prepend: site.baseurl }}"></script>
 	
 </body>

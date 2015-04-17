@@ -1,0 +1,106 @@
+#media-browser {
+	bottom: 0;
+	left: 0;
+	opacity: 0;
+	overflow: auto;
+	position: fixed;
+	right: 0;
+	transform: scale(0);
+	top: 0;
+	z-index: 15;
+}
+
+html.media-browser-mode {
+	&, body, #editor {
+		box-sizing: border-box;
+		height: 100%;
+	}
+	
+	#media-browser {
+		opacity: 1;
+		transform: scale(1);
+	}
+	
+	#editor {
+		color: mix($colorYellow, $colorGrey, 80%);
+	}
+	
+	body {
+		background: mix($colorYellow, $colorGrey, 90%);
+	}
+	
+	.site-header {
+		background: $colorYellow;
+		
+		&, a {
+			color: $colorGrey;
+		}
+	}
+	
+	#media {
+		.col-1-4 {
+			margin-top: $gutterWidth;
+			text-align: center;
+				
+			.uploading, .failed, .complete {
+				display: none;
+			}
+			
+			&.is-complete .complete,
+			&.is-failed .failed,
+			&.is-uploading .uploading {
+				display: inline-block;
+			}
+			
+			&.is-failed a,
+			&.is-uploading a {
+				cursor: default;
+			}
+			
+			&.is-complete a {
+				cursor: pointer;
+				opacity: .8;
+				
+				&:active, &:focus, &:hover {
+					opacity: 1;
+				}
+			}
+			
+			a {
+				color: mix($colorYellow, $colorGrey, 20%);
+				display: inline-block;
+				height: 160px;
+				line-height: 160px;
+				
+				.mdi {
+					@include scaleUpFontSizeBy(6);
+					vertical-align: middle;
+				
+				}
+				
+				img {
+					display: inline-block;
+					max-height: 100%;
+					max-width: 100%;
+					vertical-align: middle;
+				}
+			}
+		}
+	}
+	
+	#upload {
+		@include scaleUpFontSizeBy(2);
+		
+		background: mix($colorYellow, $colorGrey, 70%);
+		color: mix($colorYellow, $colorGrey, 10%);
+		cursor: pointer;
+		height: 160px;
+		line-height: 160px;
+		padding: 0 ($gutterWidth / 2);
+		text-align: center;
+		
+		&.dz-drag-hover, &:hover {
+			background: mix($colorYellow, $colorGrey, 60%);
+		}
+	}
+}

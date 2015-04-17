@@ -6,7 +6,7 @@ function get_page_structure()
 		'/..',
 	];
 	
-	foreach (new RecursiveIteratorIterator(new RecursiveDirectoryIterator(ROOT.'/pages')) as $filename)
+	foreach (new RecursiveIteratorIterator(new RecursiveDirectoryIterator(ROOT.'/content/markdown')) as $filename)
 	{
 		$ignore = false;
 		
@@ -21,7 +21,7 @@ function get_page_structure()
 		
 		if ($ignore === false)
 		{
-			$files[] = substr($filename, strlen(ROOT.'/pages/'), -3);
+			$files[] = substr($filename, strlen(ROOT.'/content/markdown/'), -3);
 		}
 	}
 	
@@ -46,7 +46,7 @@ function get_page($file = null)
 		$file = 'Index';
 	}
 	
-	$filepath = ROOT.'/pages/'.$file.'.md';
+	$filepath = ROOT.'/content/markdown/'.$file.'.md';
 	
 	if (file_exists($filepath))
 	{
@@ -69,7 +69,7 @@ function get_parsed_page($file = null)
 		$file = 'Index';
 	}
 	
-	$filepath = ROOT.'/pages/'.$file.'.md';
+	$filepath = ROOT.'/content/markdown/'.$file.'.md';
 	
 	if (file_exists($filepath))
 	{
@@ -94,7 +94,7 @@ function save_page($file, $content)
 		$file = 'Index';
 	}
 	
-	improved_file_put_contents(ROOT.'/pages/'.$file.'.md', $content);
+	improved_file_put_contents(ROOT.'/content/markdown/'.$file.'.md', $content);
 	
 	$converter = new ParsedownExtra();
 	
@@ -105,11 +105,26 @@ function save_page($file, $content)
 }
 
 
-function improved_file_put_contents($dir, $contents){
-        $parts = explode('/', $dir);
-        $file = array_pop($parts);
-        $dir = '';
-        foreach($parts as $part)
-            if(!is_dir($dir .= "/$part")) mkdir($dir);
-        file_put_contents("$dir/$file", $contents);
-    }
+function improved_file_put_contents($dir, $contents)
+{
+    $parts = explode('/', $dir);
+    $file = array_pop($parts);
+    $dir = '';
+    foreach($parts as $part)
+        if(!is_dir($dir .= "/$part")) mkdir($dir);
+    file_put_contents("$dir/$file", $contents);
+}
+
+
+function upload_media($file)
+{
+	$tempFile = $file['tmp_name'];
+    $targetFile =  substr(md5(time()), -8).'_'.$file['name'];
+ 
+    move_uploaded_file($tempFile, ROOT.'/content/uploads/'.$targetFile);
+    
+    return [
+	    'status' => 'success',
+	    'file' => '/content/uploads/'.$targetFile,
+    ];
+}

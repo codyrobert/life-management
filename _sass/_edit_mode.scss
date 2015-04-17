@@ -20,9 +20,8 @@ html.edit-mode {
 	.site-header {
 		background: $colorGrey;
 		border-bottom-color: rgba(0, 0, 0, .4);
-		color: $colorWhite;
 		
-		a {
+		&, a {
 			color: $colorWhite;
 		}
 	}
