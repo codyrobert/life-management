@@ -12,7 +12,6 @@
 
 #media {
 	.col-1-4 {
-		margin-top: $gutterWidth;
 		text-align: center;
 			
 		.uploading, .failed, .complete {
@@ -69,6 +68,7 @@
 	cursor: pointer;
 	height: 160px;
 	line-height: 160px;
+	margin-bottom: $gutterWidth;
 	padding: 0 ($gutterWidth / 2);
 	text-align: center;
 	

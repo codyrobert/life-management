@@ -83,6 +83,15 @@
 			{
 				$("#content").html(data.content);
 				document.getElementById("app").scrollTop = Math.round(app.scrollOffset * (document.getElementById("app").scrollHeight - window.innerHeight) * 10000) / 10000;
+				
+				$("#content .col").each(function() {
+					var parent = $(this).parent();
+					
+					if (!parent.hasClass("responsive-columns"))
+					{
+						parent.addClass("responsive-columns");
+					}
+				})
 			}
 		},
 		

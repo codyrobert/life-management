@@ -1,14 +1,15 @@
 a,
-.site-header,
 #media-browser {
 	@include defaultTransition;
 }
 
+.site-header,
 body {
 	@include defaultTransition(background-color);
 }
 
-#editor {
+#editor,
+.site-header .breadcrumb-seperator {
 	@include defaultTransition(color);
 }
 

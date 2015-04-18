@@ -1,13 +1,7 @@
-.row {
-	margin: 0 (-$gutterWidth / 2);
-	overflow: hidden;
-	zoom: 1;
-}
-
 [class*=col-] {
 	box-sizing: border-box;
 	float: left;
-	padding: 0 ($gutterWidth / 2);
+	padding: $gutterWidth ($gutterWidth / 2) 0;
 }
 
 .col-1-2 {
@@ -28,4 +22,29 @@
 
 .col-3-4 {
 	width: 100% * 3/4;
+}
+
+.row {
+	margin: 0 (-$gutterWidth / 2);
+	overflow: hidden;
+	zoom: 1;
+}
+
+.responsive-columns {
+	-webkit-column-count: 4;
+	-webkit-column-fill: balance;
+	-webkit-column-gap: $gutterWidth;
+	column-count: 4;
+	column-fill: balance;
+	column-gap: $gutterWidth;
+	margin-bottom: ($lineHeight * $fontSize * 1) - $gutterWidth;
+	
+	> .col {
+		-webkit-column-break-inside: avoid;
+		column-break-inside: avoid;
+		display: block;
+		float: none;
+		margin-bottom: $gutterWidth;
+		padding: 0;
+	}
 }
