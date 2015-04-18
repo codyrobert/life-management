@@ -30,6 +30,10 @@
 	zoom: 1;
 }
 
+.col {
+	margin-bottom: $gutterWidth;
+}
+
 .responsive-columns {
 	-webkit-column-count: 4;
 	-webkit-column-fill: balance;
@@ -44,7 +48,6 @@
 		column-break-inside: avoid;
 		display: block;
 		float: none;
-		margin-bottom: $gutterWidth;
 		padding: 0;
 	}
 }
